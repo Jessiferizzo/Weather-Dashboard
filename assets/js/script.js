@@ -88,35 +88,52 @@ const displayWeather = function (data) {
             currentPicEl.setAttribute("alt", data.weather[0].description);
   currentTempEl.innerHTML="Temp: " + data.main.temp + " F";
   currentHumidityEl.innerHTML ="Humidity: "+ data.main.humidity + "%";
-  currentWindEl.innerHTML ="Wind:  "+ data.wind.speed + "  MPH"
-  
-  //call UV API
+  currentWindEl.innerHTML ="Wind:  "+ data.wind.speed + "  MPH";
   let lat = data.coord.lat;
   let lon = data.coord.lon;
+  getUvIndex(lat,lon);
+  console.log(getUvIndex);
+}
+
+  //call UV API
+  const getUvIndex= function(lat,lon){
   let UVapiCall = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey + "&cnt=1";
   fetch(UVapiCall).then(function(response) { 
-    if (response.ok){
     response.json().then(function (data) {
-    currentUVEl.innerHTML="UV Index:  "+ data[0].value;
+    index= data[0].value;
+    console.log(index);
+    currentUVEl.innerHTML="UV Index:  "+ index;
+    updateUVindex(index);
   });
-}
 });
 };
 
-/*updateUVIndex= function(val){
-  let uvEl= $(".uvindex");
-  console.log(uvEl);
-  uvEl.text(val);
-  uvEl.removeClass();
-  
-  if (val < 3) {
-    uvEl.addClass("bg-success text-light p-2 rounded");
-  } else if (val < 6) {
-    uvEl.addClass("bg-warning text-light p-2 rounded");
-  } else {
-    uvEl.addClass("bg-danger text-light p-2 rounded");
+var updateUVindex = function(index){
+  let newIndex = Math.floor(index)
+  console.log(newIndex);
+  if(newIndex<=2){
+    $(index).addClass("bg-success text-light p-2 rounded");
+    console.log("green");
+  }else if(newIndex>2 && newIndex<=8){
+    $(index).addClass("bg-warning text-light p-2 rounded")
+    console.log("yellow");
+  }
+  else if(newIndex>8){
+    $(index).addClass("bg-danger text-light p-2 rounded");
+    console.log("red");
   };
-  }*/
+}
+
+/*var updateUVindex = function(index){
+  if(index<=2){
+    index.addClass("bg-success text-light p-2 rounded");
+  }else if(index>2 && index<=8){
+    index.addClass("bg-warning text-light p-2 rounded")
+  }
+  else if(index>8){
+    index.addClass("bg-danger text-light p-2 rounded");
+  };
+}
 
 
 //CURRENT city div shows city name, date, temp, wind, humidity, UV index//
