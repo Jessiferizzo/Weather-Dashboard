@@ -14,87 +14,90 @@
 <body>
     <div class="container">
         <div class="rounded border border-secondary">
-        <div id="weather" class="mw-100 text-center bg-primary bg-gradient text-white">
-            <h2>Weather Dashboard</h2>
-        </div>
-        <!--big container for city and forecast cards-->
-        <!--city search div-->
-        <div class="container">
-            <div class="row d-inline-flex mt-2 me-3 px-1 col-3">
-                <h2>Search for a city:</h2>
-                <input class="form-control mb-3" type="text" placeholder="Enter city">
-                <button type="button" class="btn btn-info">Search</button>
+            <div id="weather" class="mw-100 text-center bg-primary bg-gradient text-white">
+                <h2>Weather Dashboard</h2>
             </div>
-            <!--column 9 div-->
-            <div class="row d-inline-flex mt-2 col-9 px-2">
-                <div class="rounded border border-secondary">
-                    <h2>Atlanta </h2>
-                    <p class="pb-1"><span class="pe-1">Temp:</span>
-                    <p class="pb-1"><span class="pe-1">Wind:</span>
-                    <p class="pb-1"><span class="pe-1">Humidity:</span>
-                    <p class="pb-1"><span class="pe-1">UV Index:</span>
+            <!--big container for city and forecast cards-->
+            <!--city search div-->
+            <div class="container">
+                <div class="row d-inline-flex mt-2 me-3 px-1 col-3">
+                    <form id="cityform">
+                        <label class="form-label h2" for="city">Search For a City:</label>
+                        <input id="cityinput" class="form-control mb-3" type="text" placeholder="Enter city">
+                        <button type="submit button" class="search btn btn-info w-100">Search</button>
+                    </form>
                 </div>
+                <!--column 9 div-->
+                <div id="currentCitybox" class="row d-inline-flex mt-2 col-9 px-2">
+                    <div class="rounded border border-secondary">
+                        <h2 class="currentCityh2"></h2><span class="date"></span><img id="currentpic" src="" alt="">
+                        <p class="pb-1"><span class="temp pe-1">Temp:</span>
+                        <p class="pb-1"><span class="wind pe-1">Wind:</span>
+                        <p class="pb-1"><span class="humidity pe-1">Humidity:</span>
+                        <p class="pb-1"><span class="uvindex pe-1">UV Index:</span>
+                    </div>
 
-                <div class="col mt-3 mb-3">
-                    <div class="card text-white" style="background-color:cornflowerblue">
-                        <div class="card-body">
-                            <h5 class="card-title">date</h5>
-                            <p class="caits rd-text">Temp:</p>
-                            <p class="card-text">Wind:</p>
-                            <p class="card-text">Humidity:</p>
+                    <div class="col mt-3 mb-3">
+                        <div class="card text-white" style="background-color:cornflowerblue">
+                            <div class="card-body">
+                                <h5 class="card-title">date</h5>
+                                <p class="card-text">Temp:</p>
+                                <p class="card-text">Wind:</p>
+                                <p class="card-text">Humidity:</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col mt-3 mb-3">
-                    <div class="card text-white" style="background-color:cornflowerblue">
-                        <div class="card-body">
-                            <h5 class="card-title">date</h5>
-                            <p class="card-text">Temp:</p>
-                            <p class="card-text">Wind:</p>
-                            <p class="card-text">Humidity:</p>
+                    <div class="col mt-3 mb-3">
+                        <div class="card text-white" style="background-color:cornflowerblue">
+                            <div class="card-body">
+                                <h5 class="card-title">date</h5>
+                                <p class="card-text">Temp:</p>
+                                <p class="card-text">Wind:</p>
+                                <p class="card-text">Humidity:</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col mt-3 mb-3">
-                    <div class="card text-white" style="background-color:cornflowerblue">
-                        <div class="card-body">
-                            <h5 class="card-title">date</h5>
-                            <p class="card-text">Temp:</p>
-                            <p class="card-text">Wind:</p>
-                            <p class="card-text">Humidity:</p>
+                    <div class="col mt-3 mb-3">
+                        <div class="card text-white" style="background-color:cornflowerblue">
+                            <div class="card-body">
+                                <h5 class="card-title">date</h5>
+                                <p class="card-text">Temp:</p>
+                                <p class="card-text">Wind:</p>
+                                <p class="card-text">Humidity:</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col mt-3 mb-3">
-                    <div class="card text-white" style="background-color:cornflowerblue">
-                        <div class="card-body">
-                            <h5 class="card-title">date</h5>
-                            <p class="card-text">Temp:</p>
-                            <p class="card-text">Wind:</p>
-                            <p class="card-text">Humidity:</p>
+                    <div class="col mt-3 mb-3">
+                        <div class="card text-white" style="background-color:cornflowerblue">
+                            <div class="card-body">
+                                <h5 class="card-title">date</h5>
+                                <p class="card-text">Temp:</p>
+                                <p class="card-text">Wind:</p>
+                                <p class="card-text">Humidity:</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col mt-3 mb-3">
-                    <div class="card text-white" style="background-color:cornflowerblue">
-                        <div class="card-body">
-                            <h5 class="card-title">date</h5>
-                            <p class="card-text">Temp:</p>
-                            <p class="card-text">Wind:</p>
-                            <p class="card-text">Humidity:</p>
+                    <div class="col mt-3 mb-3">
+                        <div class="card text-white" style="background-color:cornflowerblue">
+                            <div class="card-body">
+                                <h5 class="card-title">date</h5>
+                                <p class="card-text">Temp:</p>
+                                <p class="card-text">Wind:</p>
+                                <p class="card-text">Humidity:</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
-        </div>
         </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 
