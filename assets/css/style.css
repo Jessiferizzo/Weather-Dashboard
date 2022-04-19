@@ -3,17 +3,21 @@ body{
     background-color: white;
 }
 
-.fair {
-    background-color:green ;
-    color: white;
-}
-  
-.mod {
-    background-color: yellow;
-    color: white;
-}
-  
-.severe {
+span.severe{
+    padding: 3px;
     background-color: red;
-    color: white;
+    color:white;
+    
+}
+  
+span.moderate{
+    padding: 3px;
+    background-color: yellow;
+    color: black;
+}
+
+span.favorable{
+    padding: 3px;
+    background-color: green;
+    color:white;
 }

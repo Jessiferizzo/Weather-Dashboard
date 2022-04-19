@@ -12,7 +12,7 @@ let currentHumidityEl = document.querySelector(".humidity")
 let currentWindEl = document.querySelector(".wind");
 let currentUVEl = document.querySelector(".uvindex");
 let currentPicEl= document.querySelector("#currentpic")
-let currentIndex=document.querySelector(".index")
+let currentIndex=document.querySelector(".uvIndex")
 
 
 
@@ -25,6 +25,8 @@ const formSubmitHandler = function (event) {
   // prevent page from refreshing
   event.preventDefault();
   console.log(event);
+
+  
 
   //get value from cityInput
   const cityName = cityInputEl.value.trim();
@@ -101,29 +103,25 @@ const displayWeather = function (data) {
   let UVapiCall = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey + "&cnt=1";
   fetch(UVapiCall).then(function(response) { 
     response.json().then(function (data) {
+      index= data[0].value;
     updateUVindex(data);
   });
 });
 };
 
 var updateUVindex = function(data){
-  index= data[0].value;
-  console.log(index);
-  let newindex = Math.floor(index)
-  console.log(newindex);
-  currentIndex=newindex;
-  if(newindex<=2){
-    currentUVEl.innerHTML="UV Index:  "+ index+ $(".index").addClass ("fair");
-    console.log("green");
-  }else if(newindex>2 && newindex<=8){
-    $(".index").addClass("mod");
-    console.log("yellow");
-  }
-  else if(index>8){
-    currentUVEl.innerHTML="UV Index:  "+index
-    $(".index").addClass("severe");
-    console.log("red");
-  };
+    currentIndex.innerHTML = "UV Index:  " + data[0].value;
+    console.log(currentIndex.innerHTML);
+
+    if(data[0].value <=2){
+       currentIndex.classList = "favorable"
+    }else if(data[0].value >2 && data[0].value <=8){
+        currentIndex.classList = "moderate "
+    }
+    else if(data[0].value >8){
+        currentIndex.classList = "severe"
+    };
+
 }
 
 /*var updateUVindex = function(index){
